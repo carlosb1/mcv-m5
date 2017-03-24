@@ -11,7 +11,7 @@ TODO
 TODO
 ## Getting started code
 TODO
-## Achieved goals
+## Goals
 TODO
 
 ## Resources
