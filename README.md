@@ -86,7 +86,9 @@ python train.py -c ./config/tt100k_classif_resize.py -l results -e experiment_re
 ### WARNING:
 
 ## Goals
-TODO
+ - [x]  yes
+ - [ ]  no
+ TODO
 
 ## Resources
 TODO
