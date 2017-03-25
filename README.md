@@ -13,12 +13,13 @@ TODO
 TODO
 link: https://owncloud.cvc.uab.es/owncloud/index.php/s/yCnAtuabr3s5cPa
 
-## Getting started code
+## Getting started
 ### Prerequistes
 In order to follow the practicum guide, we installed needed tools and created a softlink to reference our dataset:
 ```
 ln -s access_module /share/mastergpu
 ```
+### Experiments 
 After this, the main objective was the execution of the provided tools from the git repository to analyse results:
 
 1.- First step before starting to run our script, it is understand how works:
@@ -60,9 +61,18 @@ After understanding this, each experiment is only change some parameters:
 
 - Analyse for crop and resize configuration: 
 ```
-python train.py -c ./config/tt100k_classif_squeezenet.py -l results -e exp_coen_carlos_squeezenet -s /share/mastergpu/module5
+python train.py -c ./config/tt100k_classif_crop.py -l results -e experiment_crop -s ~/access_modules
+python train.py -c ./config/tt100k_classif_resize.py -l results -e experiment_resize -s ~/access_modules
 ```
+##### Description
 
+
+- Analyse for crop and resize configuration: 
+```
+python train.py -c ./config/tt100k_classif_crop.py -l results -e experiment_crop -s ~/access_modules
+python train.py -c ./config/tt100k_classif_resize.py -l results -e experiment_resize -s ~/access_modules
+```
+##### Description
 
 
 
