@@ -19,7 +19,7 @@ In order to follow the practicum guide, we installed needed tools and created a 
 ```
 ln -s access_module /share/mastergpu
 ```
-After this, the main objective was the execution of the provided tools to analyse results:
+After this, the main objective was the execution of the provided tools from the git repository to analyse results:
 
 1.- First step before starting to run our script, it is understand how works:
 
@@ -41,14 +41,30 @@ optional arguments:
                         Path to shared data folder
   -l LOCAL_PATH, --local_path LOCAL_PATH
                         Path to local data folder
-
 ```
+
 If we analyse the script. It is easy to test each required step in the practicum. 
 
 - -c It specifies the modified configuration file (All the configuration files are modifications from `tt100k_classif.py` )
 - -s It specifies the root folder from extract the necessary datasets for the experiments.
 - -l It specifies the path for our workspace. It will have datasets and results from the executed experiments.
 - -e It specifies the experiment name.
+
+For our set of tests we apply create a softlink to easy the command line:
+```
+~$ ln -s /share/master access_modules
+```
+and we defined the workspace / local directory like `results`
+
+After understanding this, each experiment is only change some parameters:
+
+- Analyse for crop and resize configuration: 
+```
+python train.py -c ./config/tt100k_classif_squeezenet.py -l results -e exp_coen_carlos_squeezenet -s /share/mastergpu/module5
+```
+
+
+
 
 
 
