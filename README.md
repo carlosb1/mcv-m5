@@ -59,27 +59,21 @@ and we defined the workspace / local directory like `results`
 
 After understanding this, each experiment is only change some parameters:
 
-- Analyse for crop and resize configuration: 
-```
-python train.py -c ./config/tt100k_classif_crop.py -l results -e experiment_crop -s ~/access_modules
-python train.py -c ./config/tt100k_classif_resize.py -l results -e experiment_resize -s ~/access_modules
-```
-##### Description
-
+##### Run the provided code
 
 - Analyse for crop and resize configuration: 
 ```
 python train.py -c ./config/tt100k_classif_crop.py -l results -e experiment_crop -s ~/access_modules
 python train.py -c ./config/tt100k_classif_resize.py -l results -e experiment_resize -s ~/access_modules
 ```
-##### Description
+- Substract and mean configuration:
+
+- Fine tuning process:
 
 
+##### Train a network on another dataset
 
-
-
-
-
+##### Implement a new network
 
 
 
