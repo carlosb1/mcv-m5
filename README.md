@@ -66,14 +66,34 @@ After understanding this, each experiment is only change some parameters:
 python train.py -c ./config/tt100k_classif_crop.py -l results -e experiment_crop -s ~/access_modules
 python train.py -c ./config/tt100k_classif_resize.py -l results -e experiment_resize -s ~/access_modules
 ```
-- Substract and mean configuration:
 
+- Substract and mean configuration:
+```
+python train.py -c ./config/tt100k_classif_mean_substract.py -l results -e experiment_mean_substract -s ~/access_modules
+```
+ 
 - Fine tuning process:
+TODO. Explains more related base model which it was applied to fine tuning
+```
+python train.py -c ./config/tt100k_classif_belgium.py -l results -e experiment_fine_tuning -s ~/access_modules
+```
+
 
 
 ##### Train a network on another dataset
 
+TODO pending to finish!!
+
 ##### Implement a new network
+For the practicum, It was implemented the InceptionV3 network. Keras has support for this neural network, It was easy to add this 
+network to our code. To do this, It was modified a few  main python classes.
+The framework implements a factory pattern to load the different available models.
+
+`model_factory.py` includes the method which set up a network model. Before to add the necessary line codes to add our model, we will create it which the provided structure data from `model.py`. In the `inceptionV3.py` is added the model.After, in the `model.py` is added in the `make` function.
+
+
+
+
 
 
 
