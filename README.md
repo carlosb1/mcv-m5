@@ -1,8 +1,9 @@
 # Scene Understanding for Autonomous Vehicles
+The objective of this project is the evaluation of the most well-known methods in the object detection / recognition / classification using the most popular neural network techniques.  To do this, we analyse different neural networks and configuration to do the review some the best methods. 
 
 ## Authors
-
-The objective of this project is the evaluation of the most well-known methods in the object detection / recognition / classification using the most popular neural network techniques.  To do this, we analyse different neural networks and configuration to do the review some the best methods. 
+Coen Antens 
+Carlos Báez
 
 ## Documentation
 TODO 
@@ -89,23 +90,23 @@ For the practicum, It was implemented the InceptionV3 network. Keras has support
 network to our code. To do this, It was modified a few  main python classes.
 The framework implements a factory pattern to load the different available models.
 
-`model_factory.py` includes the method which set up a network model. Before to add the necessary line codes to add our model, we will create it which the provided structure data from `model.py`. In the `inceptionV3.py` is added the model.After, in the `model.py` is added in the `make` function.
+`model_factory.py` includes the method which set up a network model. Before to add the necessary line codes to add our model, we will create it which the provided structure data from `model.py`. In the `inceptionV3.py` and `squeezenet.py` is added the model. After this, in the `model.py` is added in the `make` function for our new networks. 
 
+In order to execute the new neural network, it is created a new configuration file and execute: 
+```
+python train.py -c ./config/tt100k_classif_inceptionV3.py -l results -e experiment_inception -s ~/access_modules
+python train.py -c ./config/tt100k_classif_squeezenet.py -l results -e experiment_squeezenet -s ~/access_modules
 
-
-
-
-
-
-### WARNING:
-
+```
 ## Goals
- - [x]  yes
- - [ ]  no
- TODO
-
-## Resources
-TODO
+ - [x] Run the provided code
+ - [x] Train a network on another dataset
+ - [x] Implement a new network
+ - [ ] Implement a new network
+ - [ ] Try to boost the performance of your network
+ - [x] Report
+ 
+ 
 ## References
-TODO
+squeezenet implementation: https://github.com/rcmalli/keras-squeezenet
 
