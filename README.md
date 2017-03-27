@@ -2,7 +2,8 @@
 The objective of this project is the evaluation of the most well-known methods in the object detection / recognition / classification using the most popular neural network techniques.  To do this, we analyse different neural networks and configuration to do the review some the best methods. 
 
 ## Authors
-Coen Antens 
+Coen Antens
+
 Carlos Báez
 
 ## Documentation
@@ -11,7 +12,6 @@ TODO
 - Slides
 
 ## Results
-TODO
 link: https://owncloud.cvc.uab.es/owncloud/index.php/s/yCnAtuabr3s5cPa
 
 ## Getting started
