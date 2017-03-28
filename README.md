@@ -67,13 +67,13 @@ Most of the tasks were tested doing different configuration files and finally we
 
 It was used different configuration filer for test and it was modified the necessary parameters:
 
-- to apply resize (`tt100k_detection_resize.py`), we keep a (244,244 size:
+- to apply resize (`tt100k_detection_resize.py`), we keep a (244,244) size:
 ```
 resize_train                 = (224, 224)      # Resize the image during training (Height, Width) or None
 resize_valid                 = (224, 224)      # Resize the image during validation
 resize_test                  = (224, 224)      # Resize the image during testing
 ```
-- to apply crop (tt100k_detection_crop.py`), we enable flag for crop and disable flags for resize:
+- to apply crop (`tt100k_detection_crop.py`), we enable flag for crop and disable flags for resize:
 ```
 crop_size_train              = (64, 64)      # Crop size during training (Height, Width) or None
 crop_size_valid              = (64, 64)      # Crop size during validation
@@ -82,7 +82,7 @@ resize_train                 = None            # Resize the image during trainin
 resize_valid                 = None            # Resize the image during validation
 resize_test                  = None            # Resize the image during testing
 ```
-- to apply the mean normalization with substract, we activate this type of mean and force to recompute:
+- to apply the mean normalization with substract (`tt100k_detection_mean_substract.py`), we activate this type of mean and force to recompute:
 ``` 
 norm_fit_dataset                   = True      # If True it recompute std and mean from images. Either it uses the std and mean set at the dataset config file
 norm_featurewise_center            = True     # Substract mean - dataset
