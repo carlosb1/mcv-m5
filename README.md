@@ -91,7 +91,7 @@ norm_featurewise_center            = True     # Substract mean - dataset
 It was created two different neural networks InceptionV3 and Squeezenet. To do this, It was modified a few python classes from the provided code.
 The code implements a factory pattern to load the different available models where `model_factory.py` includes the method which set up a network model. We will set up the networks which the provided structure data from `model.py` in the `inceptionV3.py` and `squeezenet.py` files. After this, it is update the `model_factory.py` with these new models.
 
-- `inceptionV3.py` file is used the method from keras documentation [inception]. 
+- `inceptionV3.py` file uses the method from keras documentation [inception]. 
 - `squeezenet.py` file is extracted from another repository [squeezenet] and it was adapted for keras 1.2
 
 
@@ -140,5 +140,6 @@ python train.py -c ./config/tt100k_classif_squeezenet.py -l results -e experimen
  
 ## References
 [squeezenet] implementation: https://github.com/rcmalli/keras-squeezenet
+
 [inception] implementation: https://github.com/fchollet/keras/blob/master/keras/applications/inception_v3.py
 
