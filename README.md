@@ -60,6 +60,42 @@ and we defined the workspace / local directory like `results`
 
 After understanding this, each experiment is only change some parameters:
 
+
+### Short explanation of the code in the repository
+
+Most of the tasks were tested doing different configuration files and finally we write our networks ('InceptionV3' and 'Squeezenet') implementing the code. 
+
+It was used different configuration filer for test and it was modified the necessary parameters:
+
+- to apply resize (`tt100k_detection_resize.py`), we keep a (244,244 size:
+```
+resize_train                 = (224, 224)      # Resize the image during training (Height, Width) or None
+resize_valid                 = (224, 224)      # Resize the image during validation
+resize_test                  = (224, 224)      # Resize the image during testing
+```
+- to apply crop (tt100k_detection_crop.py`), we enable flag for crop and disable flags for resize:
+```
+crop_size_train              = (64, 64)      # Crop size during training (Height, Width) or None
+crop_size_valid              = (64, 64)      # Crop size during validation
+crop_size_test               = (64, 64)      # Crop size during testing
+resize_train                 = None            # Resize the image during training (Height, Width) or None
+resize_valid                 = None            # Resize the image during validation
+resize_test                  = None            # Resize the image during testing
+```
+- to apply the mean normalization with substract, we activate this type of mean and force to recompute:
+``` 
+norm_fit_dataset                   = True      # If True it recompute std and mean from images. Either it uses the std and mean set at the dataset config file
+norm_featurewise_center            = True     # Substract mean - dataset
+``` 
+
+It was created two different neural networks InceptionV3 and Squeezenet. To do this, It was modified a few python classes from the provided code.
+The code implements a factory pattern to load the different available models where `model_factory.py` includes the method which set up a network model. We will set up the networks which the provided structure data from `model.py` in the `inceptionV3.py` and `squeezenet.py` files. After this, it is update the `model_factory.py` with these new models.
+
+- `inceptionV3.py` file is used the method from keras documentation [inception]. 
+- `squeezenet.py` file is extracted from another repository [squeezenet] and it was adapted for keras 1.2
+
+
+
 ##### Run the provided code
 
 - Analyse for crop and resize configuration: 
@@ -69,28 +105,22 @@ python train.py -c ./config/tt100k_classif_resize.py -l results -e experiment_re
 ```
 
 - Substract and mean configuration:
-```
+```cro
 python train.py -c ./config/tt100k_classif_mean_substract.py -l results -e experiment_mean_substract -s ~/access_modules
 ```
  
 - Fine tuning process:
-TODO. Explains more related base model which it was applied to fine tuning
 ```
 python train.py -c ./config/tt100k_classif_belgium.py -l results -e experiment_fine_tuning -s ~/access_modules
 ```
-
-
 
 ##### Train a network on another dataset
 
 TODO pending to finish!!
 
-##### Implement a new network
-For the practicum, It was implemented the InceptionV3 network. Keras has support for this neural network, It was easy to add this 
-network to our code. To do this, It was modified a few  main python classes.
-The framework implements a factory pattern to load the different available models.
 
-`model_factory.py` includes the method which set up a network model. Before to add the necessary line codes to add our model, we will create it which the provided structure data from `model.py`. In the `inceptionV3.py` and `squeezenet.py` is added the model. After this, in the `model.py` is added in the `make` function for our new networks. 
+##### Implement a new network
+For the practicum, It was implemented the InceptionV3 network. Keras has support for this neural network, It was easy to add this network to our code, which it is explained better in the  
 
 In order to execute the new neural network, it is created a new configuration file and execute: 
 ```
@@ -98,6 +128,7 @@ python train.py -c ./config/tt100k_classif_inceptionV3.py -l results -e experime
 python train.py -c ./config/tt100k_classif_squeezenet.py -l results -e experiment_squeezenet -s ~/access_modules
 
 ```
+
 ## Goals
  - [x] Run the provided code
  - [x] Train a network on another dataset
@@ -108,5 +139,6 @@ python train.py -c ./config/tt100k_classif_squeezenet.py -l results -e experimen
  
  
 ## References
-squeezenet implementation: https://github.com/rcmalli/keras-squeezenet
+[squeezenet] implementation: https://github.com/rcmalli/keras-squeezenet
+[inception] implementation: https://github.com/fchollet/keras/blob/master/keras/applications/inception_v3.py
 
