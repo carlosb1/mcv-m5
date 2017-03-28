@@ -87,6 +87,18 @@ resize_test                  = None            # Resize the image during testing
 norm_fit_dataset                   = True      # If True it recompute std and mean from images. Either it uses the std and mean set at the dataset config file
 norm_featurewise_center            = True     # Substract mean - dataset
 ``` 
+- to apply the fine-tuning (`tt100k_classif_belgium.py`), it was added a different dataset and enabled the flag to apply fine-tuning:
+```
+dataset_name                 = 'BelgiumTSC'	# Dataset name
+....
+..
+model_name                   = 'vgg16'
+....
+..
+load_pretrained              = True           # Load a pretrained model for doing finetuning
+weights_file                 = '/.../exp_coen_carlos_a/weights.hdf5'  # Training weight file name
+
+```
 
 It was created two different neural networks InceptionV3 and Squeezenet. To do this, It was modified a few python classes from the provided code.
 The code implements a factory pattern to load the different available models where `model_factory.py` includes the method which set up a network model. We will set up the networks which the provided structure data from `model.py` in the `inceptionV3.py` and `squeezenet.py` files. After this, it is update the `model_factory.py` with these new models.
@@ -94,6 +106,13 @@ The code implements a factory pattern to load the different available models whe
 - `inceptionV3.py` file uses the method from keras documentation [inception]. 
 - `squeezenet.py` file is extracted from another repository [squeezenet] and it was adapted for keras 1.2
 
+Finally, we created two configuration files (`tt100k_classif_inceptionV3.py` and `tt100k_classif_squeezenet.py` ) to add these lines:
+```
+model_name                   = 'InceptionV3'
+```
+```
+model_name                   = 'squeezenet'
+```
 
 
 ##### Run the provided code
