@@ -60,7 +60,15 @@ weights_file                 = '/.../exp_coen_carlos_a/weights.hdf5'  # Training
 
 ```
 
-It was created two different neural networks InceptionV3 and Squeezenet. To do this, It was modified a few python classes from the provided code.
+To train another dataset. It was modified the configuration file applying this: 
+
+```
+dataset_name                 = 'KITTI'
+```
+It will load the dataset fromt the specified root in the script. and It will create our new model.
+
+
+Furtheremore, it was created two different neural networks InceptionV3 and Squeezenet. To do this, It was modified a few python classes from the provided code.
 The code implements a factory pattern to load the different available models where `model_factory.py` includes the method which set up a network model. We will set up the networks which the provided structure data from `model.py` in the `inceptionV3.py` and `squeezenet.py` files. After this, it is update the `model_factory.py` with these new models.
 
 - `inceptionV3.py` file uses the method from keras documentation [inception]. 
@@ -135,11 +143,16 @@ python train.py -c ./config/tt100k_classif_belgium.py -l results -e experiment_f
 
 ##### Train a network on another dataset
 
-TODO pending to finish!!
+It was trained a network with a KITTI dataset. It was relative easy, It was replaced the dataset in our file configuration.
+
+```
+python train.py -c ./config/KITTI_classsif.py -l results -e experiment_KITTI -s ~/access_modules
+```
 
 
 ##### Implement a new network
 For the practicum, It was implemented the InceptionV3 network. Keras has support for this neural network, It was easy to add this network to our code, which it is explained better in the  
+Also, it was implemented a squeezenet. It was adapted an example of squeezenet [squeezenet] for our Keras version.
 
 In order to execute the new neural network, it is created a new configuration file and execute: 
 ```
