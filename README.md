@@ -8,7 +8,7 @@ Carlos Báez
 
 ## Documentation
 TODO 
-- Paper
+- Paper: https://www.overleaf.com/9194577bcggshxnwmdm#/33107307/
 - Slides
 
 ## Results
@@ -165,7 +165,7 @@ python train.py -c ./config/tt100k_classif_squeezenet.py -l results -e experimen
  - [x] Run the provided code
  - [x] Train a network on another dataset
  - [x] Implement a new network
- - [ ] Implement a new network
+ - [x] Implement a new network
  - [ ] Try to boost the performance of your network
  - [x] Report
  
